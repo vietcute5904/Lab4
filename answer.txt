@@ -1,0 +1,18 @@
+trả lời :
+public int compareTo(MediaVHQ other) {
+    // So sánh theo title
+    int titleComparison = this.getTitleVHQ().compareToIgnoreCase(other.getTitleVHQ());
+    if (titleComparison != 0) {
+        return titleComparison;
+    }
+
+    // Nếu title giống nhau, so sánh theo category
+    int categoryComparison = this.getCategoryVHQ().compareToIgnoreCase(other.getCategoryVHQ());
+    if (categoryComparison != 0) {
+        return categoryComparison;
+    }
+
+    // Nếu title và category giống nhau, so sánh theo cost
+    return Float.compare(this.getCostVHQ(), other.getCostVHQ());
+}
+Cách triển khai này giúp chúng ta linh hoạt hơn khi so sánh các đối tượng MediaVHQ và cung cấp khả năng mở rộng cho các lớp con khác nếu cần thiết.
